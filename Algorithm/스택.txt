@@ -1,0 +1,21 @@
+# 스택
+
+LOFO(후입선출)구조로 
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b01c17d9-9076-4af8-a4ad-f438fda89b4f/Untitled.png)
+
+위 사진처럼 데이터가 쌓이고 삭제와 삽입이 한 방향에서만 이루어짐
+
+```jsx
+top : 삽입과 삭제가 일어나는 위치(가장 마지막에 넣은 데이터)
+연산(리스트 이름이 s라고 가정)
+s.append(data) : top위치에 새로운 데이터를 삽입하는 연산
+s.pop() : top 위치에 현재 있는 데이터를 삭제하고 확인하는 연산
+s[-1] : top위치에 현재 있는 데이터를 단순 확인하는 연산
+```
+
+깊이 우선 탐색
+
+넓이 우선 탐색
+
+백트래킹
