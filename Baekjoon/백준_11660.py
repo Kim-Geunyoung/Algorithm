@@ -21,18 +21,18 @@ N×N개의 수가 N×N 크기의 표에 채워져 있다. (x1, y1)부터 (x2, y2
 
 # 풀이
 n, m = map(int, input().split())
-a  = [[0] * (n+1)]
-d = [[0] * (n+1) for _ in range(n+1)]
+lst = [[0] * (n+1)]
+sum_lst = [[0] * (n+1) for _ in range(n+1)]
 
 for i in range(n):
-    a_row = [0] + [int(x) for x in input().split()]
-    a.append(a_row)
+    temp = list(map(int, input().split()))
+    temp = [0] + temp
+    lst.append(temp)
 
 for i in range(1, n+1):
-    for j in range(1, n+1):
-        d[i][j] = d[i][j-1] + d[i-1][j] -d[i-1][j-1] + a[i][j]
+    for k in range(1, n+1):
+        sum_lst[i][k] = sum_lst[i][k-1] + sum_lst[i-1][k] - sum_lst[i-1][k-1] + lst[i][k]
 
-for _ in range(m):
-    x1, y1, x2, y2 = map(int, input().split())
-    result = d[x2][y2] - d[x1-1][y2] - d[x2][y1-1] + d[x1-1][y1-1]
-    print(result)
+for i in range(m):
+    a, b, c, d = map(int, input().split())
+    print(sum_lst[c][d] - sum_lst[c][b-1] - sum_lst[a-1][d] + sum_lst[a-1][b-1])
